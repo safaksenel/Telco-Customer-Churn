@@ -1,20 +1,16 @@
-FROM python:3.10-slim
+FROM python:3.11-slim
 
 WORKDIR /app
 
-# Gerekli dosyaları kopyala
+# Bağımlılıklar
 COPY requirements.txt .
-
-# Bağımlılıkları yükle
 RUN pip install --no-cache-dir -r requirements.txt
 
-# Uygulama kodlarını ve veri setini kopyala
+# Uygulama dosyalarını kopyala
 COPY . .
 
-# Eğer model.joblib yoksa, container ayağa kalkarken önce eğitim yapsın
-# (Opsiyonel olarak bu adımı dışarıda yapıp imaja sadece modeli de koyabilirsiniz
-# Ancak "sadece veri seti var" dendiği için eğitimi burada tetikliyoruz)
-RUN python train.py
+# Veri ön işleme ve model eğitimi
+RUN python 01_data_preprocessing.py && python 02_model_training.py
 
 EXPOSE 8000
 

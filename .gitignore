@@ -1,5 +1,28 @@
+# Sanal ortam
+venv/
 .venv/
+
+# Python
 __pycache__/
 *.pyc
+*.pyo
+*.egg-info/
+
+# IDE
+.vscode/
+.idea/
+
+# OS
 .DS_Store
+Thumbs.db
+
+# Model çıktıları (eğitimle üretilir, repo'ya pushlanmaz)
 model.joblib
+cleaned_telco_churn.csv
+model_results.csv
+
+# CatBoost temp
+catboost_info/
+
+# Jupyter
+.ipynb_checkpoints/
