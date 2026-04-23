@@ -422,6 +422,5 @@ def main() -> None:
     logging.info(f"Toplam egitim suresi: {elapsed:.1f} saniye ({elapsed/60:.1f} dakika)")
     logging.info("=" * 65)
 
-
 if __name__ == "__main__":
     main()
